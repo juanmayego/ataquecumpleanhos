@@ -4,6 +4,8 @@ Ataque de cumpleaños
 
 comment
 
+
+
 quicksort() {
     # sorts the positional elements wrt alphanumerical sort
     # return is in array quicksort_ret
@@ -27,6 +29,7 @@ quicksort() {
 }
 
 
+
 stringToArray() {
 	str=$1
 	len=${#str} # halla la longitud de la cadena
@@ -39,44 +42,57 @@ stringToArray() {
 }
 
 
-textoHash=$(echo -n "Estimado" | sha1sum) # crea el hash del texto
-echo "\nvalor hash"
-echo $textoHash 
 
-textoHashotro=$(echo -n "Querido" | sha1sum)
-echo $textoHashotro
-binarioOtro=$(echo $textoHashotro | perl -lpe '$_=unpack"B*"')
+arrayToString() {
+	#vec=$1
+	len=${#quicksort_ret[@]}
+	#echo $len
 
+	for ((i=0; i<len; i++));
+	do
+	   var="${quicksort_ret[i]}"
+	   palabra=$palabra$var # concatena cada caracter del vector
+	done
 
-stringToArray "$textoHash"
-quicksort "${array[@]}" # ordena el vector
-echo "${quicksort_ret[@]}"
-stringToArray "$textoHashotro"
-quicksort "${array[@]}" # ordena el vector
-echo "${quicksort_ret[@]}"
+}
 
 
+echo "Lee el archivo palabrasOrig.txt"
+true > origOrd.txt
+while read line1
+do
+	palabraOrig=$line1 # extrae la palabra original
+	palabraOrigHash=$(echo -n $palabraOrig | sha1sum) # crea el hash de la palabra
+	stringToArray "$palabraOrigHash" # copia el string a un array para poder ordenar
+	quicksort "${array[@]}" # ordena el array
+	palabra=""
+	arrayToString "${quicksort_ret[@]}" # crea un string de vuelta
+	#echo '\n' > origOrd.txt
+	echo $palabra >> origOrd.txt
+	#echo  > origOrd.txt
+	
+done < palabrasOrig.txt
+echo "Crea los hashes de cada palabra"
+echo "Ordena los hashes"
+echo "Escribe los hashes ordenados en el archivo origOrd.txt"
 
-diff=$(diff <(printf "%s\n" "${arr1[@]}") <(printf "%s\n" "${arr2[@]}"))
+echo "Lee el archivo palabrasModif.txt"
+true > modifOrd.txt
+while read line2
+do
+	palabraModif=$line2 # extrae la palabra original
+	palabraModifHash=$(echo -n $palabraModif | sha1sum) # crea el hash de la palabra
+	stringToArray "$palabraModifHash" # copia el string a un array para poder ordenar
+	quicksort "${array[@]}" # ordena el array
+	palabra=""
+	arrayToString "${quicksort_ret[@]}" # crea un string de vuelta
+	#echo '\n' > origOrd.txt
+	echo $palabra >> modifOrd.txt
+	#echo  > origOrd.txt
+	
+done < palabrasModif.txt
+echo "Crea los hashes de cada palabra"
+echo "Ordena los hashes"
+echo "Escribe los hashes ordenados en el archivo modifOrd.txt"
 
-if [[ -z "$diff" ]]; then
-    echo "TRUE"
-else
-    echo "FALSE"
-fi
 
-
-
-echo "\nvalor binario"
-binario=$(echo $textoHash | perl -lpe '$_=unpack"B*"') # pasa a binario el hash creado
-#echo $binario
-
-echo "\ncantidad de bits"
-#echo ${#binario} # contador de bits del binario
-#echo $numero
-
-echo true > salida.txt
-echo "texto 1" >> salida.txt
-echo $binario >> salida.txt
-echo "\ntexto2" >> salida.txt
-echo $binarioOtro >> salida.txt
