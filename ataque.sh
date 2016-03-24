@@ -67,9 +67,7 @@ do
 	quicksort "${array[@]}" # ordena el array
 	palabra=""
 	arrayToString "${quicksort_ret[@]}" # crea un string de vuelta
-	#echo '\n' > origOrd.txt
 	echo $palabra >> origOrd.txt
-	#echo  > origOrd.txt
 	
 done < palabrasOrig.txt
 echo "-Crea los hashes de cada palabra"
@@ -88,9 +86,8 @@ do
 	quicksort "${array[@]}" # ordena el array
 	palabra=""
 	arrayToString "${quicksort_ret[@]}" # crea un string de vuelta
-	#echo '\n' > origOrd.txt
 	echo $palabra >> modifOrd.txt
-	#echo  > origOrd.txt
+
 	
 done < palabrasModif.txt
 echo "-Crea los hashes de cada palabra"
