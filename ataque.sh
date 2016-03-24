@@ -57,7 +57,7 @@ arrayToString() {
 }
 
 
-echo "Lee el archivo palabrasOrig.txt"
+echo "-Lee el archivo palabrasOrig.txt"
 true > origOrd.txt
 while read line1
 do
@@ -72,11 +72,13 @@ do
 	#echo  > origOrd.txt
 	
 done < palabrasOrig.txt
-echo "Crea los hashes de cada palabra"
-echo "Ordena los hashes"
-echo "Escribe los hashes ordenados en el archivo origOrd.txt"
+echo "-Crea los hashes de cada palabra"
+echo "-Ordena los hashes"
+echo "-Escribe los hashes ordenados en el archivo origOrd.txt"
+echo 
 
-echo "Lee el archivo palabrasModif.txt"
+
+echo "-Lee el archivo palabrasModif.txt"
 true > modifOrd.txt
 while read line2
 do
@@ -91,8 +93,8 @@ do
 	#echo  > origOrd.txt
 	
 done < palabrasModif.txt
-echo "Crea los hashes de cada palabra"
-echo "Ordena los hashes"
-echo "Escribe los hashes ordenados en el archivo modifOrd.txt"
+echo "-Crea los hashes de cada palabra"
+echo "-Ordena los hashes"
+echo "-Escribe los hashes ordenados en el archivo modifOrd.txt"
 
 
