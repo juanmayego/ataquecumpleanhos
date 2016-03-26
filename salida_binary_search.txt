@@ -1,0 +1,23 @@
+OUTPUT:
+
+[venu@localhost shell]$ chmod 755 binarysearch.sh
+[venu@localhost shell]$ ./binarysearch.sh
+Enter Array Elements :
+12 34 56 21 43 11 -32 87 112 -43 -111 98 100 22 0 11
+Array Elements After Sort:
+-111 -43 -32 0 11 11 12 21 22 34 43 56 87 98 100 112
+Enter Element to be searched : 21       # Middle element
+21 found after 1 searches
+Do you want another search (y/n): y
+Enter Element to be searched : 112
+112 found after 5 searches
+Do you want another search (y/n): y
+Enter Element to be searched : 56       # second middle element(upper)
+56 found after 2 searches
+Do you want another search (y/n): y
+Enter Element to be searched : 0        # second middle element(lower)
+0 found after 2 searches
+Do you want another search (y/n): y
+Enter Element to be searched : -111
+-111 found after 4 searches
+Do you want another search (y/n): n
