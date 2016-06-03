@@ -1,0 +1,115 @@
+<HEAD>
+<TITLE>EJEMPLO DE TEXTO AUTOMATICO. Félix Remírez. 2009</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+
+<script language="JavaScript1.2">
+
+function displaymessage() {
+
+// vamos a generar textos cortos de 4 oraciones. Por tanto hemos de repetir la creación de una oración cuatro veces con un bulce del tipo 'for'.
+
+for (x = 1; x < 5; x++) {
+
+// existen cuatro bloques similares para generar las frases A-B-C-D. Para construirlas se memorizan las frases
+// en variables del tipo array y se genera un numero aleatorio con el que se selecciona una de ellas
+// al azar.
+
+var preguntas1 = new Array (
+"En cualquier caso",
+"De cualquier modo",
+"Sin lugar a dudas",
+"Evidentemente",
+"Así pues",
+"Sin entrar en otras consideraciones",
+"Por lo tanto",
+"Sin embargo no hemos de olvidar que",
+"Desde el punto de vista de la forma",
+"En resumen"
+);
+var l1 = preguntas1.length;
+var rnd_no1 = Math.round((l1-1)*Math.random());
+var coma=","
+var message1=preguntas1[rnd_no1]+coma;
+
+var preguntas2 = new Array (
+"la calidad de la poesía",
+"la utilidad de la literatura digital",
+"la profundidad dialéctica de un blog",
+"la literatura electrónica",
+"la complejidad de los estudios electroliterarios",
+"la poesía concebida por un microprocesador",
+"la literatura ergódica",
+"la nueva estética de la literatrónica",
+"la lectura de cibertextos",
+"la hiperfonía"
+);
+var l2 = preguntas2.length;
+var rnd_no2 = Math.round((l2-1)*Math.random());
+var message2=preguntas2[rnd_no2];
+
+
+var preguntas3 = new Array (
+"podrá ser analizada hasta el detalle",
+"podrá concebirse en un adecuado corpus ",
+"se atendrá sin género de dudas a lo fundamental del texto",
+"generará de manera subyacente una nueva visión",
+"se fragmentará en una constelación muy variada",
+"se debería estudiar como un subconjunto experimental",
+"acabará imponiéndose en la memoria literaria ",
+"terminará por difundirse mientras que se olvidará el ciberespacio",
+"conformará el núcleo multimedia interdisciplinar",
+"será considerada- según la Universidad de Mantumbe- la primera obra claramente hipermediática"
+);
+var l3 = preguntas3.length;
+var rnd_no3 = Math.round((l3-1)*Math.random());
+var message3=preguntas3[rnd_no3];
+
+
+var preguntas4 = new Array (
+"de teoremas sintácticos novedosos. ",
+"de carismáticas vías de futuro. ",
+"por un cada vez un mayor grupo de lingüistas. ",
+"por los lectores.",
+"dentro de una nueva teoría que alumbre nuevos conceptos. ",
+"dentro de un marco de texto fluido tan en boga hoy en día. ",
+"por la nueva oferta de lectores electrónicos. ",
+"de la literatura blogdica (permítasenos este neologismo) pieza clave en el desarrollo de la próxima década. ",
+"de la nueva pragmática. ",
+"entre una pléyade de nuevos escritores. "
+);
+var l4 = preguntas4.length;
+var rnd_no4 = Math.round((l4-1)*Math.random());
+var message4=preguntas4[rnd_no4];
+
+// Formamos el texto con las 4 oraciones y lo visualizamos en una zona DIV llamada div1.
+
+var message5=message1+" "+message2+" "+message3+" "+message4
+
+var myDiv1 = document.getElementById("div1");
+
+myDiv1.appendChild(document.createTextNode(message5)); };
+
+}
+</script>
+
+<!--ahora escribimos la estructura HTML de la página-->
+
+<BODY bgcolor="#DDDDD9">
+
+<LEFT>
+
+<!--en la zona DIV1 escribimos el texto cuando hacemos click en un botón-->
+
+<div id="div1">
+<input type="button" value="Crear texto" onclick="displaymessage()" />
+</div>
+
+<!--en la zona DIV2 ponemos un botón que borre el texto y empiece de nuevo-->
+<div id="div2">
+<input type="button" value="Limpiar pantalla" onclick="window.location.reload()" style="font-family: Verdana; font-size: 8 pt">
+</div>
+
+
+
+</BODY>
+</HTML>
